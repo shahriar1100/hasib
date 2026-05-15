@@ -181,50 +181,310 @@
     <section id="home">
         <h1>Welcome to <span class="gradient-text">Future Web</span></h1>
         <p>Ami ekta modern UI design korlam jeta fully responsive ebong gradient hover effect shomporkito.</p>
-        <button class="btn">Get Started</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Website</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(45deg, #00dbde, #fc00ff);
+            --bg-dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #f1f1f1;
+            font-weight: 400;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00dbde;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-gradient);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Content Sections --- */
+        section {
+            padding: 100px 10%;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .content-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .img-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .img-box img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transition: 0.5s;
+        }
+
+        .img-box img:hover {
+            transform: translateY(-10px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #020617;
+            padding: 4rem 10% 2rem;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 12px 35px;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 219, 222, 0.4);
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 5%;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.95);
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+                padding-top: 50px;
+                transition: 0.4s;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            section {
+                padding: 60px 5%;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CREATIVE.AI</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Design Your <span class="gradient-text">Future</span></h1>
+        <p>Expert solutions for modern digital experiences with cutting-edge technology.</p>
+        <a href="#about" class="btn">Explore More</a>
     </section>
 
     <section id="about">
-        <h2 class="gradient-text">About Us</h2>
-        <p>Eikhane apnar company ba nijer shomporke likhte parben. Smooth scrolling effect check korun.</p>
-    </section>
-
-    <section id="services">
-        <h2 class="gradient-text">Our Services</h2>
-        <p>Web Development, UI/UX Design, ebong Graphics er kaj kora hoy.</p>
-    </section>
-
-    <section id="contact">
-        <h2 class="gradient-text">Contact Me</h2>
-        <p>Email: example@gmail.com <br> Location: Bangladesh</p>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-content">
-            <h3>MyBrand Design</h3>
-            <p>&copy; 2024 All Rights Reserved.</p>
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-            </div>
+        <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Team Work">
         </div>
+        <div class="content-box">
+            <h2 class="gradient-text">About Our Vision</h2>
+            <p>We create beautiful, functional websites that help businesses grow. Our team focuses on high performance and user experience.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section id="services" style="flex-direction: row-reverse;">
+        <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Data Science">
+        </div>
+        <div class="content-box">
+            <h2 class="gradient-text">Digital Marketing</h2>
+            <p>From SEO to Social Media, we ensure your brand reaches the right audience at the right time with our data-driven strategies.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 class="gradient-text">Get In Touch</h2>
+        <p>Ready to start your next project with us?</p>
+        <div style="margin-top: 20px;">
+            <p>Email: hello@creativeai.com</p>
+            <p>Phone: +880 1234 567 890</p>
+        </div>
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p>&copy; 2026 Creative.AI | Designed for Excellence</p>
     </footer>
 
-    <!-- Smooth Scroll JavaScript -->
     <script>
-        // JavaScript for additional scroll behavior if needed
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Mobile Menu Toggle Logic
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked (for mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll adjustment for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const sectionId = this.getAttribute('href');
-                document.querySelector(sectionId).scrollIntoView({
-                    behavior: 'smooth'
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerOffset = 80;
+                const elementPosition = target.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
                 });
             });
         });
     </script>
-
 </body>
 </html>
+
